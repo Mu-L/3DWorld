@@ -395,8 +395,31 @@ bool building_t::add_small_retail_room_objs(rand_gen_t rgen, room_t const &room,
 				clock.d[dim][!dir] = wall_pos + (dir ? -1.0 : 1.0)*clock_depth;
 				add_clock(clock, room_id, light_amt, dim, !dir, digital);
 			}
-			// TODO: TYPE_TCAN, TYPE_PALLET, TYPE_HANDGUN, TYPE_MILK, coffee machine?
-			//add_trashcan_to_room(rgen, room, zval, room_id, light_amt, objs_start, 0); // check_last_obj=0
+			if (1) { // add a trashcan under the counter; there shouldn't be anything it can collide with
+				unsigned const shapes[3] = {SHAPE_CUBE, SHAPE_CYLIN, SHAPE_ROUNDED_CUBE};
+				float const radius(min(0.02f*rgen.rand_uniform(3.0, 6.0)*window_vspace, 0.25f*(min(counter.dx(), counter.dy()) - wall_thick)));
+				float const height(min(0.55f*rgen.rand_uniform(3.0, 6.0)*radius, 0.75f*wall.dz()));
+				float const inside_edge(wall.d[dim][dir] + dscale*0.25*wall_thick);
+				cube_t tc;
+				set_cube_zvals(tc, zval+get_flooring_thick(), zval+height);
+				tc.d[dim][!dir] = inside_edge;
+				tc.d[dim][ dir] = inside_edge + dscale*2.0*radius;
+				set_wall_width(tc, rgen.rand_uniform(counter.d[!dim][0]+radius, counter.d[!dim][1]-radius), radius, !dim);
+				objs.emplace_back(tc, TYPE_TCAN, room_id, dim, dir, 0, light_amt, shapes[rgen.rand() % 3], tcan_colors[rgen.rand() % NUM_TCAN_COLORS]);
+				add_trash_to_trashcan(rgen, tc, room_id, light_amt);
+			}
+			if (building_obj_model_loader.is_model_valid(OBJ_MODEL_HANDGUN)) { // add a handgun under the counter
+				uint16_t const sub_model_id(rgen.rand()); // gun model
+				vector3d const sz(building_obj_model_loader.get_model_world_space_size(combine_model_submodel_id(OBJ_MODEL_HANDGUN, sub_model_id))); // D, W, H
+				float const height(0.02*window_vspace), hwidth(0.5*height*sz.y/sz.z), depth(height*sz.x/sz.z), outside_edge(counter.d[dim][dir]);
+				cube_t gun;
+				set_cube_zvals(gun, wall.z2()-height, wall.z2());
+				gun.d[dim][ dir] = outside_edge;
+				gun.d[dim][!dir] = outside_edge - dscale*depth;
+				set_wall_width(gun, rgen.rand_uniform(counter.d[!dim][0]+hwidth, counter.d[!dim][1]-hwidth), hwidth, !dim);
+				objs.emplace_back(gun, TYPE_HANDGUN, room_id, dim, dir, RO_FLAG_NOCOLL, light_amt, SHAPE_CUBE, WHITE, sub_model_id);
+			}
+			// TODO: TYPE_MILK in fridge?
 		}
 		place_area.expand_by_xy(-0.4*door_width); // add extra padding along the sides for doors
 	}
