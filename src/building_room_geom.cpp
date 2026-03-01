@@ -1371,13 +1371,13 @@ unsigned get_shelf_rack_cubes(room_object_t const &c, cube_t &back, cube_t &top,
 	unsigned const num_shelves(get_srack_num_shelves(c)); // 3-5
 	bool const add_top(add_shelf_rack_top(c)), add_sides(add_shelf_rack_sides(c));
 	float const height(c.get_height()), length(c.get_width()), depth(c.get_depth());
-	float const shelf_thickness(0.015*height), bot_gap(1.8*shelf_thickness), back_thickness(0.05*depth);
+	float const shelf_thickness(0.015*height), bot_gap(2.0*shelf_thickness), back_thickness(0.05*depth);
 	float const side_thickness(min(0.1f*length, 0.75f*shelf_thickness)), top_thickness(add_top ? side_thickness : 0.0);
 	float const shelf_spacing((height - bot_gap - top_thickness)/num_shelves);
 	back = c; // pegboard
-	if (add_sides) {back.expand_in_dim(!c.dim, -side_thickness);}
 	back.z2() -= top_thickness; // back is under top
-	back.z1() += bot_gap;
+	if (add_sides) {back.expand_in_dim(!c.dim, -side_thickness);}
+	if (add_sides) {back.z1() += bot_gap;} // back must touch the floor if there are no sides
 	back.expand_in_dim(c.dim, -0.5*(depth - back_thickness));
 	cube_t shelf(c);
 	shelf.expand_in_dim(!c.dim, -(add_sides ? 1.0 : 0.5)*side_thickness); // shrink a bit even if there are no sides to prevent Z-fighting
