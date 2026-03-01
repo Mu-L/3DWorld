@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5824DC38-0D29-3B00-BC2D-CC6437E8F545}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{051C6EA5-0A9A-3DEC-BD87-02745665C827}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>RUN_TESTS</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -33,22 +33,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -65,18 +65,10 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"E:\Program Files (x86)\CMake\bin\ctest.exe" --force-new-ctest-process -C $(Configuration)
+"C:\Program Files\CMake\bin\ctest.exe" -C $(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -87,18 +79,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"E:\Program Files (x86)\CMake\bin\ctest.exe" --force-new-ctest-process -C $(Configuration)
+"C:\Program Files\CMake\bin\ctest.exe" -C $(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -109,18 +93,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"E:\Program Files (x86)\CMake\bin\ctest.exe" --force-new-ctest-process -C $(Configuration)
+"C:\Program Files\CMake\bin\ctest.exe" -C $(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,18 +107,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
-    <Midl>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"E:\Program Files (x86)\CMake\bin\ctest.exe" --force-new-ctest-process -C $(Configuration)
+"C:\Program Files\CMake\bin\ctest.exe" -C $(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -153,7 +121,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\CMakeFiles\c7d9ce4d757ae9d7cbeee4dd40694f22\RUN_TESTS_force.rule">
+    <CustomBuild Include="C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\CMakeFiles\afc4f34cf1e34a99f69eccf4cfa2613c\RUN_TESTS_force.rule">
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
@@ -165,8 +134,10 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 cd .
@@ -178,8 +149,10 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 cd .
@@ -191,8 +164,10 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 cd .
@@ -204,13 +179,15 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\contrib\dbs\CMakeFiles\RUN_TESTS_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\ZERO_CHECK.vcxproj">
-      <Project>{942911F7-0D25-384C-B439-FB284EA06278}</Project>
+    <ProjectReference Include="C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\ZERO_CHECK.vcxproj">
+      <Project>{ACD425B4-342A-302D-BCE9-6F3613B08196}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

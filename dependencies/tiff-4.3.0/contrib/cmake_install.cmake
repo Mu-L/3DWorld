@@ -1,4 +1,4 @@
-# Install script for directory: E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib
+# Install script for directory: C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,15 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/addtiffo/cmake_install.cmake")
-  include("E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/dbs/cmake_install.cmake")
-  include("E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/iptcutil/cmake_install.cmake")
+  include("C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/addtiffo/cmake_install.cmake")
+  include("C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/dbs/cmake_install.cmake")
+  include("C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/iptcutil/cmake_install.cmake")
 
 endif()
 
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/contrib/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()

@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\tools\tiffcp.c">
+    <ClCompile Include="C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\tools\tiffcp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\port\getopt.c">
+    <ClCompile Include="C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\port\getopt.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\Frank\Desktop\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\tools\CMakeLists.txt" />
+    <CustomBuild Include="C:\Frank\Frank\CS184\3DWorld_git\dependencies\tiff-4.3.0\tools\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{EAD86477-56EF-30B1-87BE-F42E2CD78771}</UniqueIdentifier>
+      <UniqueIdentifier>{0F05D93F-2E78-3448-99B1-D8CB8CFD83AC}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

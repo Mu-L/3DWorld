@@ -1,4 +1,4 @@
-# Install script for directory: E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images
+# Install script for directory: C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,7 +32,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "C:/Program Files (x86)/tiff/share/doc/tiff/html/images/back.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/bali.jpg;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/cat.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/cover.jpg;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/cramps.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/dave.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/info.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/jello.jpg;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/jim.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/note.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/oxford.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/quad.jpg;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/ring.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/smallliz.jpg;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/strike.gif;C:/Program Files (x86)/tiff/share/doc/tiff/html/images/warning.gif")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -41,23 +41,29 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "C:/Program Files (x86)/tiff/share/doc/tiff/html/images" TYPE FILE FILES
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/back.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/bali.jpg"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cat.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cover.jpg"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cramps.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/dave.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/info.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/jello.jpg"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/jim.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/note.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/oxford.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/quad.jpg"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/ring.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/smallliz.jpg"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/strike.gif"
-    "E:/Frank/Desktop/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/warning.gif"
+  file(INSTALL DESTINATION "C:/Program Files (x86)/tiff/share/doc/tiff/html/images" TYPE FILE FILES
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/back.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/bali.jpg"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cat.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cover.jpg"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/cramps.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/dave.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/info.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/jello.jpg"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/jim.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/note.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/oxford.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/quad.jpg"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/ring.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/smallliz.jpg"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/strike.gif"
+    "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/warning.gif"
     )
 endif()
 
+string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
+       "${CMAKE_INSTALL_MANIFEST_FILES}")
+if(CMAKE_INSTALL_LOCAL_ONLY)
+  file(WRITE "C:/Frank/Frank/CS184/3DWorld_git/dependencies/tiff-4.3.0/html/images/install_local_manifest.txt"
+     "${CMAKE_INSTALL_MANIFEST_CONTENT}")
+endif()
