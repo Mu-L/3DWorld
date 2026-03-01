@@ -416,6 +416,24 @@ cube_t building_t::add_restaurant_counter(cube_t const &wall, bool dim, bool dir
 		if (has_bcube_int(objs.back(), avoid)) {objs.pop_back();} // remove phone if it intersects a cash register
 		else {avoid.push_back(objs.back());}
 	}
+	if (conv_store) { // add a coffee machine, scaled down to fit
+		vending_info_t const &vtype(get_vending_type(VEND_COFFEE));
+		float const height(0.5*window_vspace*(vtype.size.z/72)), hwidth(0.5*height*(vtype.size.x/vtype.size.z)), depth(height*(vtype.size.y/vtype.size.z)), edge_space(1.5*hwidth);
+
+		if (hwidth < 0.2*counter_len && depth < place_area.get_sz_dim(dim)) { // counter is wide and deep enough; should be true
+			cube_t vm;
+			set_cube_zvals(vm, place_area.z2(), place_area.z2()+height);
+			set_wall_width(vm, place_area.get_center_dim(dim), 0.5*depth, dim); // centered on the counter
+
+			for (unsigned N = 0; N < 10; ++N) {
+				set_wall_width(vm, rgen.rand_uniform(place_area.d[!dim][0]+edge_space, place_area.d[!dim][1]-edge_space), hwidth, !dim);
+				if (has_bcube_int(vm, avoid)) continue; // blocked
+				objs.emplace_back(vm, TYPE_VENDING, room_id, dim, dir, 0, light_amt, SHAPE_CUBE, vtype.color, VEND_COFFEE);
+				avoid.push_back(vm);
+				break; // success
+			} // for N
+		}
+	}
 	// place other items between cash registers
 	unsigned const num_cont  (conv_store ? 0 : (rgen.rand() % 6)); // 0-5
 	unsigned const num_pizza (rgen.rand() % 4); // 0-3
