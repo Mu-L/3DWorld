@@ -145,7 +145,7 @@ void tid_nm_pair_t::set_gl(tid_nm_pair_dstate_t &state) const {
 	if (refract_ix > 1.0) {state.s.set_refract_ix(refract_ix);}
 	if (metalness  > 0.0 && has_normal_map) {state.s.add_uniform_float("cube_map_normal_map_scale", 1.0);} // enable normal map for cube map metal reflections
 	if (no_cracks && state.crack_weight > 0.0) {state.s.add_uniform_float("crack_weight", 0.0);}
-	if (transparent) {glDepthMask(GL_FALSE);} // disable depth writing
+	if (transparent) {state.dwt.disable_depth_write();}
 }
 void tid_nm_pair_t::unset_gl(tid_nm_pair_dstate_t &state) const {
 	if (tid == REFLECTION_TEXTURE_ID && room_mirror_ref_tid != 0) {state.s.make_current(); return;}
@@ -159,7 +159,7 @@ void tid_nm_pair_t::unset_gl(tid_nm_pair_dstate_t &state) const {
 	if (refract_ix > 1.0) {state.s.set_refract_ix(1.0);} // clear IOR
 	if (metalness  > 0.0 && has_normal_map) {state.s.add_uniform_float("cube_map_normal_map_scale", 0.0);} // reset to 0
 	if (no_cracks && state.crack_weight > 0.0) {state.s.add_uniform_float("crack_weight", state.crack_weight);} // restore original value
-	if (transparent) {glDepthMask(GL_TRUE);}
+	if (transparent) {state.dwt.restore_depth_write();}
 }
 void tid_nm_pair_t::toggle_transparent_windows_mode() { // hack
 	if      (tid == BLDG_WINDOW_TEX    ) {tid = BLDG_WIND_TRANS_TEX;}
@@ -733,13 +733,12 @@ class building_draw_t {
 			if (vstart == vend)                  return; // empty range - no verts for this tile
 			if (shadow_only && no_shadows)       return; // no shadows on this material
 			if (!shadow_only && tex.shadow_only) return; // material is only drawn in the shadow pass
-			int depth_write_disabled(0);
+			depth_write_tracker_t dwt;
 			
 			if (tex.tid == FONT_TEXTURE_ID) {
 				if (shadow_only) return; // no shadows for text
 				enable_blend();
-				glGetIntegerv(GL_DEPTH_WRITEMASK, &depth_write_disabled);
-				if (depth_write_disabled) {glDepthMask(GL_FALSE);} // disable depth writing if it was enabled
+				dwt.disable_depth_write();
 			}
 			if (!shadow_only) {tex.set_gl(state);}
 			assert(vao_mgr.vbo_valid());
@@ -755,7 +754,7 @@ class building_draw_t {
 				++num_frame_draw_calls;
 			}
 			if (tex.tid == FONT_TEXTURE_ID) {
-				if (depth_write_disabled) {glDepthMask(GL_TRUE);} // re-enable depth writing if needed
+				dwt.restore_depth_write();
 				disable_blend();
 			}
 			if (!shadow_only) {tex.unset_gl(state);}

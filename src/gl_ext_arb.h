@@ -299,7 +299,6 @@ typedef subdiv_sphere_manager_t<icosphere_drawer_t> icosphere_manager_t;
 
 
 class vbo_ring_buffer_t : public vbo_wrap_t {
-
 	unsigned init_size, size, pos=0;
 	bool is_index;
 
@@ -329,7 +328,6 @@ void build_texture_mipmaps(unsigned tid, unsigned dim);
 
 
 struct texture_pair_t {
-
 	unsigned tids[2]={}; // color, normal
 	bool multisample;
 
@@ -344,7 +342,6 @@ struct texture_pair_t {
 };
 
 struct texture_atlas_t { // unused
-
 	unsigned tid=0, nx=1, ny=1;
 	bool multisample;
 
@@ -359,9 +356,7 @@ struct texture_atlas_t { // unused
 	bool operator< (texture_atlas_t const &tp) const {return (tid < tp.tid);}
 };
 
-
 class render_to_texture_t {
-
 	unsigned tsize;
 
 	void pre_render(float xsize, float ysize, unsigned nx, unsigned ny, point const &center, vector3d const &view_dir) const;
@@ -372,6 +367,12 @@ public:
 	void render(texture_pair_t &tpair, float xsize, float ysize, point const &center, vector3d const &view_dir,
 		colorRGBA const &bkg_color, bool use_depth_buffer, bool mipmap);
 	virtual void draw_geom(bool is_normal_pass) = 0;
+};
+
+struct depth_write_tracker_t {
+	int depth_write_disabled=0;
+	void disable_depth_write();
+	void restore_depth_write();
 };
 
 void set_temp_clear_color(colorRGBA const &clear_color, bool clear_depth=0, bool clear_stencil=0);

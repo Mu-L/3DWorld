@@ -4,7 +4,7 @@
 #pragma once
 
 #include "3DWorld.h"
-#include "gl_ext_arb.h" // for vbo_wrap_t
+#include "gl_ext_arb.h" // for vbo_wrap_t, etc.
 #include "transform_obj.h" // for xform_matrix
 #include "draw_utils.h" // for quad_batch_draw
 #include "file_utils.h" // for kw_to_val_map_t
@@ -272,6 +272,7 @@ typedef vector<city_zone_t> vect_city_zone_t;
 
 struct tid_nm_pair_dstate_t {
 	shader_t &s;
+	depth_write_tracker_t dwt;
 	int bmm_loc=-1;
 	float bump_map_mag=1.0, crack_weight=0.0;
 	bool no_set_texture=0;

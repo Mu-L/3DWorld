@@ -476,5 +476,13 @@ void end_stencil_write() {
 
 GLuint DebugScope::global_scope_depth = 0;
 
+void depth_write_tracker_t::disable_depth_write() {
+	glGetIntegerv(GL_DEPTH_WRITEMASK, &depth_write_disabled);
+	if (depth_write_disabled) {glDepthMask(GL_FALSE);} // disable depth writing if it was enabled
+}
+void depth_write_tracker_t::restore_depth_write() {
+	if (depth_write_disabled) {glDepthMask(GL_TRUE);} // re-enable depth writing if needed
+}
+
 
 
