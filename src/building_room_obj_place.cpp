@@ -2110,7 +2110,7 @@ bool building_t::add_storage_objs(rand_gen_t rgen, room_t const &room, float zva
 		}
 	}
 	// add pallets if there's space
-	if ((!is_house || is_basement) && min(crate_bounds.dx(), crate_bounds.dy()) > 1.5*window_vspacing) {
+	if ((!is_house || is_basement) && min(crate_bounds.dx(), crate_bounds.dy()) > (is_conv_store() ? 1.0 : 1.5)*window_vspacing) {
 		unsigned const num_pallets(rgen.rand() % (is_house ? 2 : 4)); // 0-3 for office buildings; 0-1 for house basements
 		float const one_inch(get_one_inch());
 		cube_t pallet_bounds(crate_bounds), pallet;
